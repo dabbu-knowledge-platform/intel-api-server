@@ -1,0 +1,52 @@
+{
+  "name": "intel-api-server",
+  "version": "0.1.0",
+  "description": "An implementation of the Dabbu Intel API that helps in extraction of and one pagers/summaries of all knowledge around a certain topic, person or place based on information/data from multiple providers",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "clean": "rm -r dist/ && mkdir dist/",
+    "check-format": "npx prettier --check .",
+    "format": "npx prettier --write .",
+    "prebuild": "npm run check-format",
+    "build": "npx pkg --output dist/intel-api-server .",
+    "test": "echo \"Error: no test specified\"; exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dabbu-knowledge-platform/intel-api-server.git"
+  },
+  "author": "gamemaker1",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/dabbu-knowledge-platform/intel-api-server/issues"
+  },
+  "homepage": "https://github.com/dabbu-knowledge-platform/intel-api-server#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "express": "^4.17.1",
+    "file-type": "16.2.0",
+    "fs-extra": "^9.1.0",
+    "multer": "^1.4.2"
+  },
+  "devDependencies": {
+    "pkg": "^4.4.9",
+    "prettier": "2.2.1"
+  },
+  "bin": "src/server.js",
+  "pkg": {
+    "assets": [
+      "node_modules/**/*",
+      "src/**/*"
+    ],
+    "targets": [
+      "node14-linux-x64",
+      "node14-macos-x64",
+      "node14-win-x64"
+    ]
+  },
+  "engines": {
+    "node": "14.x",
+    "npm": "6.x"
+  }
+}
