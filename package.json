@@ -1,6 +1,6 @@
 {
   "name": "intel-api-server",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "An implementation of the Dabbu Intel API that helps in extraction of and one pagers/summaries of all knowledge around a certain topic, person or place based on information/data from multiple providers",
   "main": "src/server.js",
   "scripts": {
@@ -23,11 +23,15 @@
   },
   "homepage": "https://github.com/dabbu-knowledge-platform/intel-api-server#readme",
   "dependencies": {
+    "any-text": "^1.2.0",
     "axios": "^0.21.1",
+    "compromise": "^13.10.0",
     "express": "^4.17.1",
     "file-type": "16.2.0",
     "fs-extra": "^9.1.0",
-    "multer": "^1.4.2"
+    "multer": "^1.4.2",
+    "officeparser": "^2.2.2",
+    "pdf-parse": "^1.1.1"
   },
   "devDependencies": {
     "pkg": "^4.4.9",
