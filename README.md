@@ -4,7 +4,7 @@
 
 An implementation of the Dabbu Intel API that helps in extraction of and one pagers/summaries of all knowledge around a certain topic, person or place based on information/data from multiple providers.
 
-## **Note: The server currently does nothing, it is just a base version that takes in files and returns a HTTP 200 status code.**
+## **Note: The server is currently in active development and does not have a final API or any documentation (the code is heavily commented in case you want to still take a look).**
 
 ## Intro
 
