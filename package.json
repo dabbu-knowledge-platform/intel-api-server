@@ -1,6 +1,6 @@
 {
   "name": "intel-api-server",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "An implementation of the Dabbu Intel API that helps in extraction of and one pagers/summaries of all knowledge around a certain topic, person or place based on information/data from multiple providers",
   "main": "src/server.js",
   "scripts": {
@@ -27,11 +27,7 @@
     "fs-extra": "^9.1.0",
     "multer": "^1.4.2",
     "office-text-extractor": "^1.0.2",
-    "pos": "git+https://github.com/dariusk/pos-js.git",
-    "retext": "^7.0.1",
-    "retext-keywords": "^6.0.0",
-    "retext-pos": "^3.0.0",
-    "vfile": "^4.2.1"
+    "lda": "0.2.0"
   },
   "devDependencies": {
     "pkg": "^4.4.9",
