@@ -173,14 +173,18 @@ async function processFiles(files) {
   // Check if there are any files
   if (files) {
     // If there are, loop through them and get topics, people and places
+    let results = {
+      topics: [],
+      people: [],
+    }
     for (const file of files) {
       // Extract the text from the file
       const text = await extractText(path.normalize(file.path))
       // Proccess that text using the NLP library and add the results
-      results = {
-        topics: await extractCommonWords(file.name, text),
-        people: await extractEmails(file.name, text),
-      }
+      results.topics.push(
+        ...(await extractCommonWords(file.name, text))
+      )
+      results.people.push(...(await extractEmails(file.name, text)))
     }
 
     // Return successfully
