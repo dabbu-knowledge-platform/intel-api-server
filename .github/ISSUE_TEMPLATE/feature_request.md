@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Suggest an idea for Dabbu Files API Server
+about: Suggest an idea for Dabbu Intel API Server
 title: '[FEAT]:'
 labels: enhancement
 assignees: ''

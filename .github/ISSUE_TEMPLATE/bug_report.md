@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Create a report to help us improve Dabbu Files API Server for everyone :)
+about: Create a report to help us improve Dabbu Intel API Server for everyone :)
 title: '[BUG]:'
 labels: bug
 assignees: ''
@@ -30,7 +30,7 @@ If applicable, add screenshots to help explain your problem.
 
 - Dabbu Version: (Current version, seen when server is run) e.g. 1.5.1
 - OS Version: (Platform and Version) e.g. macOS 10.15.7 / Windows 10 (20H2) / Ubuntu 20.04.3 x64 / etc
-- Provider ID: hard_drive / google_drive / one_drive / gmail / etc
+- File type: (Mime type/name) e.g.: MS Word Document (.docx) (application/vnd.openxmlformats-officedocument.wordprocessingml.document)
 
 **Additional context**
 

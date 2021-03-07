@@ -1,6 +1,6 @@
 {
   "name": "intel-api-server",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "An implementation of the Dabbu Intel API that helps in extraction of and one pagers/summaries of all knowledge around a certain topic, person or place based on information/data from multiple providers",
   "main": "src/server.js",
   "scripts": {

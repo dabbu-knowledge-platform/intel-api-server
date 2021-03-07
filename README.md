@@ -46,18 +46,19 @@ Here is a list of clients that use the Dabbu API to extract topics, people and p
 
 - [**Dabbu CLI**](https://github.com/dabbu-knowledge-platform/cli) - A CLI that leverages the Dabbu API and neatly retrieves your files and folders scattered online.
 
-## Supported Providers
+## Supported File Types
 
-- **Hard drive**
-- **Google drive**
-- **Gmail**
-- **One drive**
+- **PDF (.pdf)**
+- **MS Word (.docx)**
+- **MS PowerPoint (.pptx)**
+- **MS Excel (.xlsx)**
+- **Plain text content**
 
 _And more to come...!_
 
-### Supporting a new provider
+### Supporting a new file type
 
-**Note: If you want to add support for a new provider that exists on the Dabbu Files Server, please file an issue using the `New provider` template [here](https://github.com/dabbu-knowledge-platform/intel-api-server/issues/new/choose). This is only to let us know that you want to work on the provider and how you plan to go about it. Also, if you need any help on the code, please do ask on [this](https://github.com/dabbu-knowledge-platform/intel-api-server/discussions/categories/want-to-contribute) Github discussion. We will only be glad to help :)**
+**Note: If you want to add support for a new file type, please file an issue using the `New file type` template [here](https://github.com/dabbu-knowledge-platform/intel-api-server/issues/new/choose). This is only to let us know that you want to work on the file type and how you plan to go about it. Also, if you need any help on the code, please do ask on [this](https://github.com/dabbu-knowledge-platform/intel-api-server/discussions/categories/want-to-contribute) Github discussion. We will only be glad to help :)**
 
 ## Docs
 
@@ -73,9 +74,10 @@ To contribute code, have a look at [CONTRIBUTING.md](./CONTRIBUTING.md).
 
 ### License - GNU GPL v3
 
-Dabbu Intel API Server - An implementation of the Dabbu Intel API that
-enables you to access your files, folders and emails stored with
-multiple providers as simple files and folders, all in one place!
+Dabbu Intel API Server - An implementation of the Dabbu Intel API
+that helps in extraction of and one pagers/summaries of all knowledge
+around a certain topic, person or place based on information/data
+from multiple providers.
 
 Copyright (C) 2021 gamemaker1
 
