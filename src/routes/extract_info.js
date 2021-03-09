@@ -125,6 +125,8 @@ router.post(`/`, upload.array('content'), (req, res, next) => {
 
 // Extract key phrases from text
 async function extractCommonWords(name, text) {
+  // Check if the text is non null
+  if (!text) return null
   // Extract the topics from the text
   let results = extractTopics(text.split('\n'))
 
@@ -145,6 +147,8 @@ async function extractCommonWords(name, text) {
 
 // Extract emails from text
 async function extractEmails(name, text) {
+  // Check if the text is non null
+  if (!text) return null
   // The regex to extract emails
   // https://github.com/gajus/extract-email-address/blob/b03017003379dca189e30512158309d2ba3eddbb/src/extractEmail.js#L10
   let matches =
