@@ -26,7 +26,6 @@ const multer = require('multer')
 const extractText = require('office-text-extractor')
 // The library used to extract keywords
 const lda = require('lda')
-
 // Helper function to return keywords in an object format
 const extractTopics = (sentences) => {
   // Run the LDA library on it (10 clusters of five terms each)
@@ -60,6 +59,8 @@ const extractTopics = (sentences) => {
   // Return the final array of keywords
   return finalResult
 }
+// The library used to detect names of a country
+const detectPlace = require('country-in-text-detector').detect
 
 // Files library, used to do all file operations across platforms
 const fs = require('fs-extra')
@@ -172,6 +173,27 @@ async function extractEmails(name, text) {
   return matches
 }
 
+// Extract places from text
+// FLAW: Does NOT work for all places
+async function extractPlaces(name, text) {
+  // Check if the text is non null
+  if (!text) return null
+  let matches = detectPlace(text)
+
+  // Convert it to an array of objects and add the file name
+  matches = matches.map((match) => {
+    return {
+      place: match.name,
+      type: match.type,
+      country: match.iso3166,
+      file: name,
+    }
+  })
+
+  // Return sucessfully
+  return matches
+}
+
 // Put together the above functions and run them for each file
 async function processFiles(files) {
   // Check if there are any files
@@ -180,6 +202,7 @@ async function processFiles(files) {
     let results = {
       topics: [],
       people: [],
+      places: [],
     }
     for (const file of files) {
       // Extract the text from the file
@@ -189,6 +212,7 @@ async function processFiles(files) {
         ...(await extractCommonWords(file.name, text))
       )
       results.people.push(...(await extractEmails(file.name, text)))
+      results.places.push(...(await extractPlaces(file.name, text)))
     }
 
     // Return successfully
