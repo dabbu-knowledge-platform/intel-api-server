@@ -4,7 +4,7 @@
 
 An implementation of the Dabbu Intel API that helps in extraction of and one pagers/summaries of all knowledge around a certain topic, person or place based on information/data from multiple providers.
 
-## **Note: The server is currently in active development and does not have a final API or any documentation (the code is heavily commented in case you want to still take a look).**
+### **Note: The server is currently in active development and does not have a final API or any documentation (the code is heavily commented in case you want to still take a look). Pre-releases will be released upon addition of new features or bug fixes and can be found [here](https://github.com/dabbu-knowledge-platform/intel-api-server/releases).**
 
 ## Intro
 
@@ -34,7 +34,7 @@ The installation can be done manually on Linux, MacOS, Android (Requires Termux)
     $ ~/Downloads/intel-api-server-linux
     ```
 
-- Your server is now running! To check, go to http://localhost:8080/. You will see the text `Dabbu Intel API Server running on port 8080` on the page. If not, try running the server again or check if you have missed a step. If the problem persists, post a message on [Github discussions](https://github.comdabbu-knowledge-platform/intel-api-server/discussions/categories/q-a) asking for help. We'll only be glad to help you :)
+- Your server is now running! To check, go to http://localhost:8079/. You will see the text `Dabbu Intel API Server running on port 8079` on the page. If not, try running the server again or check if you have missed a step. If the problem persists, post a message on [Github discussions](https://github.comdabbu-knowledge-platform/intel-api-server/discussions/categories/q-a) asking for help. We'll only be glad to help you :)
 
 ## Updating the server
 
