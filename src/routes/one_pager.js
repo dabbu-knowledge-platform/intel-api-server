@@ -33,7 +33,7 @@ const { info, json } = require('../utils.js')
 // Define the router object, which we will add our routes to
 const router = express.Router()
 // Define where multer should store the uploaded files
-const upload = multer({ dest: path.normalize(`./.cache/_intel/`) })
+const upload = multer({ dest: path.normalize(`./_dabbu/_intel/`) })
 
 // MARK: Routes
 

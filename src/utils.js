@@ -26,9 +26,12 @@ const fs = require('fs-extra')
 exports.info = (message) => {
   const date = new Date().toISOString()
   console.log(` INFO  | ${date} | ${message}`)
-  let stream = fs.createWriteStream(`dabbu_server_log.txt`, {
-    flags: 'a',
-  })
+  let stream = fs.createWriteStream(
+    `./_dabbu/intel_api_server_log.txt`,
+    {
+      flags: 'a',
+    }
+  )
   stream.write(`INFO  | ${date} | ${message}\n`)
   stream.end()
 }
@@ -38,9 +41,12 @@ exports.log = (provider, message) => {
   if (process.env.debug || process.env.DEBUG) {
     const date = new Date().toISOString()
     console.log(` DEBUG  | ${date} | ${provider} | ${message}`)
-    let stream = fs.createWriteStream(`dabbu_server_log.txt`, {
-      flags: 'a',
-    })
+    let stream = fs.createWriteStream(
+      `./_dabbu/intel_api_server_log.txt`,
+      {
+        flags: 'a',
+      }
+    )
     stream.write(`DEBUG  | ${date} | ${provider} | ${message}\n`)
     stream.end()
   }
@@ -50,9 +56,12 @@ exports.log = (provider, message) => {
 exports.error = (err) => {
   const date = new Date().toISOString()
   console.log(` ERROR | ${date} | ${this.json(err)}`)
-  let stream = fs.createWriteStream(`dabbu_server_log.txt`, {
-    flags: 'a',
-  })
+  let stream = fs.createWriteStream(
+    `./_dabbu/intel_api_server_log.txt`,
+    {
+      flags: 'a',
+    }
+  )
   stream.write(`ERROR | ${date} | ${this.json(err)}\n`)
   stream.write('\n')
   stream.end()

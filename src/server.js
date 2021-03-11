@@ -90,7 +90,7 @@ app.use(errorHandler)
 process.on('SIGINT', () => {
   info('SIGINT signal received: closing Dabbu Intel API Server')
   // Delete the .cache directory
-  fs.remove(`./.cache/_intel/`) // Delete the .cache directory
+  fs.remove(`./_dabbu/_intel/`) // Delete the .cache directory
     .then(() => info('Removed cache. Exiting..'))
     .then(() => server.close()) // Call close on the server created when we called app.listen
     .then(() => info('Server closed'))

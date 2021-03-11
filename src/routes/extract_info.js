@@ -77,7 +77,7 @@ const { info, error, json } = require('../utils.js')
 // Define the router object, which we will add our routes to
 const router = express.Router()
 // Define where multer should store the uploaded files
-const upload = multer({ dest: path.normalize(`./.cache/_intel/`) })
+const upload = multer({ dest: path.normalize(`./_dabbu/_intel/`) })
 
 // MARK: Routes
 
@@ -209,10 +209,14 @@ async function processFiles(files) {
       const text = await extractText(path.normalize(file.path))
       // Proccess that text using the NLP library and add the results
       results.topics.push(
-        ...(await extractCommonWords(file.name, text))
+        ...((await extractCommonWords(file.name, text)) || [])
       )
-      results.people.push(...(await extractEmails(file.name, text)))
-      results.places.push(...(await extractPlaces(file.name, text)))
+      results.people.push(
+        ...((await extractEmails(file.name, text)) || [])
+      )
+      results.places.push(
+        ...((await extractPlaces(file.name, text)) || [])
+      )
     }
 
     // Return successfully
