@@ -41,13 +41,13 @@
       "src/**/*"
     ],
     "targets": [
-      "node14-linux-x64",
-      "node14-macos-x64",
-      "node14-win-x64"
+      "node15-linux-x64",
+      "node15-macos-x64",
+      "node15-win-x64"
     ]
   },
   "engines": {
-    "node": "14.x",
-    "npm": "6.x"
+    "node": "15.11.0",
+    "npm": "7.6.3"
   }
 }
