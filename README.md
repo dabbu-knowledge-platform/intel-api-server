@@ -4,8 +4,6 @@
 
 An implementation of the Dabbu Intel API that helps in extraction of and one pagers/summaries of all knowledge around a certain topic, person or place based on information/data from multiple providers.
 
-### **Note: The server is currently in active development and does not have a final API or any documentation (the code is heavily commented in case you want to still take a look). Pre-releases will be released upon addition of new features or bug fixes and can be found [here](https://github.com/dabbu-knowledge-platform/intel-api-server/releases).**
-
 ## Intro
 
 This server module allows you to view files based on their content rather than in folders. It allows you to upload files and returns topics, people and places mentioned in that document.
