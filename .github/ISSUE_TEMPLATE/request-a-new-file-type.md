@@ -17,4 +17,5 @@ assignees: gamemaker1
 How do you plan to extract data from the file format programmatically. For example, a DOCX file is a zip that contains a `document.xml` file in the `word/` folder, which is parsed for the `w:t` tag.
 
 **Additional information**
+
 Add any other thoughts here

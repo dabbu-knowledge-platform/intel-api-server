@@ -7,13 +7,17 @@ assignees: ''
 ---
 
 **Describe the issue**
+
 A clear and concise description of what the issue caused by the current code is.
 
 **How could it be made better?**
+
 A concise description of how you think it can be made better. Relevant code examples are always appreciated.
 
 **Screenshots**
+
 If applicable, add screenshots to help explain the benefits of your changes.
 
 **Additional context**
+
 Add any other context about the problem here.
