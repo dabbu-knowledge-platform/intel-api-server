@@ -24,41 +24,41 @@ const fs = require('fs-extra')
 
 // Print out an informational message
 exports.info = (message) => {
-  const date = new Date().toISOString()
-  if (!process.env.DO_NOT_LOG_TO_CONSOLE)
-    console.log(` INFO  | ${date} | ${message}`)
-  let stream = fs.createWriteStream(`./_dabbu/intel_api_server.log`, {
-    flags: 'a',
-  })
-  stream.write(`INFO  | ${date} | ${message}\n`)
-  stream.end()
+	const date = new Date().toISOString()
+	if (!process.env.DO_NOT_LOG_TO_CONSOLE)
+		console.log(` INFO  | ${date} | ${message}`)
+	const stream = fs.createWriteStream(`./_dabbu/intel_api_server.log`, {
+		flags: 'a'
+	})
+	stream.write(`INFO  | ${date} | ${message}\n`)
+	stream.end()
 }
 
 // Print out a provider log
 exports.debug = (provider, message) => {
-  if (process.env.debug || process.env.DEBUG) {
-    const date = new Date().toISOString()
-    if (!process.env.DO_NOT_LOG_TO_CONSOLE)
-      console.log(` DEBUG  | ${date} | ${provider} | ${message}`)
-    let stream = fs.createWriteStream(`./_dabbu/intel_api_server.log`, {
-      flags: 'a',
-    })
-    stream.write(`DEBUG  | ${date} | ${provider} | ${message}\n`)
-    stream.end()
-  }
+	if (process.env.debug || process.env.DEBUG) {
+		const date = new Date().toISOString()
+		if (!process.env.DO_NOT_LOG_TO_CONSOLE)
+			console.log(` DEBUG  | ${date} | ${provider} | ${message}`)
+		const stream = fs.createWriteStream(`./_dabbu/intel_api_server.log`, {
+			flags: 'a'
+		})
+		stream.write(`DEBUG  | ${date} | ${provider} | ${message}\n`)
+		stream.end()
+	}
 }
 
 // Print out an error
-exports.error = (err) => {
-  const date = new Date().toISOString()
-  if (!process.env.DO_NOT_LOG_TO_CONSOLE)
-    console.log(` ERROR | ${date} | ${this.json(err, true)}`)
-  let stream = fs.createWriteStream(`./_dabbu/intel_api_server.log`, {
-    flags: 'a',
-  })
-  stream.write(`ERROR | ${date} | ${this.json(err)}\n`)
-  stream.write('\n')
-  stream.end()
+exports.error = (error) => {
+	const date = new Date().toISOString()
+	if (!process.env.DO_NOT_LOG_TO_CONSOLE)
+		console.log(` ERROR | ${date} | ${this.json(error, true)}`)
+	const stream = fs.createWriteStream(`./_dabbu/intel_api_server.log`, {
+		flags: 'a'
+	})
+	stream.write(`ERROR | ${date} | ${this.json(error)}\n`)
+	stream.write('\n')
+	stream.end()
 }
 
 // Format JSON
