@@ -1,6 +1,6 @@
 # Dabbu Intel API Server
 
-[![Code Style and Build Check](https://github.com/dabbu-knowledge-platform/intel-api-server/actions/workflows/style_and_build_check.yml/badge.svg)](https://github.com/dabbu-knowledge-platform/intel-api-server/actions/workflows/style_and_build_check.yml)
+[![NodeJS CI](https://github.com/dabbu-knowledge-platform/intel-api-server/actions/workflows/ci.yml/badge.svg)](https://github.com/dabbu-knowledge-platform/intel-api-server/actions/workflows/ci.yml)
 
 An implementation of the Dabbu Intel API that helps in extraction of and one pagers/summaries of all knowledge around a certain topic, person or place based on information/data from multiple providers.
 
