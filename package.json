@@ -2,9 +2,9 @@
 	"name": "intel-api-server",
 	"version": "0.6.5",
 	"description": "An implementation of the Dabbu Intel API that helps in extraction of and one pagers/summaries of all knowledge around a certain topic, person or place based on information/data from multiple providers",
-	"main": "src/server.js",
+	"main": "src/index.js",
 	"scripts": {
-		"start": "node src/server.js",
+		"start": "node src/index.js",
 		"clean": "rm -r dist/ && mkdir dist/",
 		"format": "xo --fix",
 		"prebuild": "npm run test",
@@ -34,7 +34,7 @@
 		"pkg": "^4.5.1",
 		"xo": "^0.38.2"
 	},
-	"bin": "src/server.js",
+	"bin": "src/index.js",
 	"pkg": {
 		"scripts": [
 			"src/**/*"
