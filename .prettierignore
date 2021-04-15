@@ -1,8 +1,0 @@
-node_modules/
-creds/
-dist/
-docs/
-_dabbu/
-.git/
-.heroku*
-dabbu_server_log.txt

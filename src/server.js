@@ -1,5 +1,5 @@
 /* Dabbu Intel API Server - server.js
- * Copyright (C) 2021  gamemaker1
+ * Copyright (C) 2021 Dabbu Knowledge Platform <dabbuknowledgeplatform@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -38,9 +38,9 @@ const app = express()
 
 // Initialise the routes
 // Extracting topics, people and places
-const extractInfoRoute = require('./routes/extract_info.js').router
+const extractInfoRoute = require('./routes/extract-info.js').router
 // Generating one pagers for a topic, person or place
-const onePagerRoute = require('./routes/one_pager.js').router
+const onePagerRoute = require('./routes/one-pager.js').router
 
 // MARK: Input processing
 
@@ -51,8 +51,7 @@ let port = process.env.PORT || process.env.port || 8079
 // Get the command line args
 const args = process.argv.slice(2)
 // Check if the port has been mentioned
-if (args[0])
-  port = args[0] || process.env.PORT || process.env.port || 8079
+if (args[0]) port = args[0] || process.env.PORT || process.env.port || 8079
 
 // MARK: Server
 
@@ -61,20 +60,20 @@ app.use(express.json())
 
 // Initialise the server on the given port
 const server = app.listen(port, () => {
-  //info(`Dabbu  Copyright (C) 2021  gamemaker1\n      This program comes with ABSOLUTELY NO WARRANTY.\n      This is free software, and you are welcome to\n      redistribute it under certain conditions; look\n      at the LICENSE file for more details.`)
-  // Print out the server version and the port it's running on
-  info(`===============================`)
-  info(`Dabbu Intel API Server v${require('../package.json').version}`)
-  info(`Server listening on port ${port}`)
+	// Info(`Dabbu  Copyright (C) 2021 Dabbu Knowledge Platform <dabbuknowledgeplatform@gmail.com>\n      This program comes with ABSOLUTELY NO WARRANTY.\n      This is free software, and you are welcome to\n      redistribute it under certain conditions; look\n      at the LICENSE file for more details.`)
+	// Print out the server version and the port it's running on
+	info(`===============================`)
+	info(`Dabbu Intel API Server v${require('../package.json').version}`)
+	info(`Server listening on port ${port}`)
 })
 
 // Display the port we are running on if they come to /
-app.get(`/`, (req, res) =>
-  res.send(
-    `Dabbu Intel API Server v${
-      require('../package.json').version
-    } running on port ${port}`
-  )
+app.get(`/`, (request, response) =>
+	response.send(
+		`Dabbu Intel API Server v${
+			require('../package.json').version
+		} running on port ${port}`
+	)
 )
 
 // Route calls to extract information to the extract info router
@@ -87,12 +86,18 @@ app.use(`${rootURL}/one-pager/`, onePagerRoute)
 app.use(errorHandler)
 
 // When the user presses CTRL+C, gracefully exit
-process.on('SIGINT', () => {
-  info('SIGINT signal received: closing Dabbu Intel API Server')
-  // Delete the .cache directory
-  fs.remove(`./_dabbu/_intel/`) // Delete the .cache directory
-    .then(() => info('Removed cache. Exiting..'))
-    .then(() => server.close()) // Call close on the server created when we called app.listen
-    .then(() => info('Server closed'))
-    .finally(() => process.exit(0))
+process.on('SIGINT', async () => {
+	info('SIGINT signal received: closing Dabbu Intel API Server')
+	// Acknowledge the SIGINT
+	info('SIGINT signal received: closing Dabbu Files API Server')
+	// Delete the .cache directory
+	await fs.remove('./_dabbu/_intel/')
+	// Tell the user
+	info('Removed cache. Exiting..')
+	// Call close on the server created when we called app.listen
+	server.close()
+	// Tell the user
+	info('Server closed')
+	// Exit
+	process.exit(0)
 })

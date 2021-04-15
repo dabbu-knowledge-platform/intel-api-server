@@ -3,5 +3,4 @@ creds/
 dist/
 _dabbu/
 .git/
-.heroku*
-dabbu_server_log.txt
+.heroku/

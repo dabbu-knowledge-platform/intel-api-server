@@ -1,5 +1,5 @@
 /* Dabbu Files API Server - internal.js
- * Copyright (C) 2021  gamemaker1
+ * Copyright (C) 2021 Dabbu Knowledge Platform <dabbuknowledgeplatform@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,6 +14,8 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
+
+/* eslint promise/prefer-await-to-then: 0 */
 
 // MARK: Imports
 
@@ -31,6 +33,7 @@ const { info, json } = require('../utils.js')
 // MARK: Config and Globals
 
 // Define the router object, which we will add our routes to
+// eslint-disable-next-line new-cap
 const router = express.Router()
 // Define where multer should store the uploaded files
 const upload = multer({ dest: path.normalize(`./_dabbu/_intel/`) })
@@ -38,17 +41,17 @@ const upload = multer({ dest: path.normalize(`./_dabbu/_intel/`) })
 // MARK: Routes
 
 // Generate a one-pager of all the files posted (together)
-router.post(`/`, upload.array('content'), (req, res, next) => {
-  info(
-    `(One Pager) Post request called with params: ${json(
-      req.params
-    )} and queries: ${json(req.query)}`
-  )
+router.post(`/`, upload.array('content'), (request, response, next) => {
+	info(
+		`(One Pager) Post request called with params: ${json(
+			request.params
+		)} and queries: ${json(request.query)}`
+	)
 
-  console.log(req.files)
+	console.log(request.files)
 
-  // Do nothing ... YET
-  res.sendStatus(200)
+	// Do nothing ... YET
+	response.sendStatus(200)
 })
 
 // MARK: Exports
