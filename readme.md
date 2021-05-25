@@ -18,7 +18,7 @@ The only way to use Dabbu (at the moment) is through a command-line interface (C
 
 ## Using the Intel API Server
 
-The Intel API Server can be used in any application to extract topics, people and places from a given document. It can (work in progress) also extract pieces of text relevant to a certain topic in a document. To get started on using the Intel API Server in your app, look at the [getting started guide](./docs/getting-started.md) (Work in progress).
+The Intel API Server can be used in any application to extract topics, people and places from a given document. It can (work in progress) also extract pieces of text relevant to a certain topic in a document. To get started on using the Intel API Server in your app, look at the [getting started guide](./docs/getting-started.md).
 
 ## Supported File Types
 
