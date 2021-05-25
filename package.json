@@ -1,6 +1,6 @@
 {
 	"name": "intel-api-server",
-	"version": "0.7.0-alpha.0",
+	"version": "0.7.0",
 	"main": "dist/compiled/app.js",
 	"bin": "dist/compiled/server.js",
 	"repository": "https://github.com/dabbu-knowledge-platform/intel-api-server",
