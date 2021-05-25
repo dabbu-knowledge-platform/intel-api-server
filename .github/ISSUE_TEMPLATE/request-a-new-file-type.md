@@ -12,9 +12,9 @@ assignees: gamemaker1
 - Mime type: Mime type of the file type, look [here](https://www.iana.org/assignments/media-types/media-types.xhtml) for more details
 - Extension: Extension of the file type
 
-**Any ideas on how support should be added**
+**Any ideas on how support should be added (Optional)**
 
-How do you plan to extract data from the file format programmatically. For example, a DOCX file is a zip that contains a `document.xml` file in the `word/` folder, which is parsed for the `w:t` tag.
+How you plan to extract data from the file format programmatically. For example, a DOCX file is a zip that contains a `document.xml` file in the `word/` folder, which is parsed for the `w:t` tag.
 
 **Additional information**
 

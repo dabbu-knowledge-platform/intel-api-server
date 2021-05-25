@@ -1,1 +1,1 @@
-web: npm start
+web: node dist/compiled/server.js

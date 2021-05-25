@@ -14,7 +14,7 @@ This guide assumes you are familiar with Github and the command line. If not, [h
 
 ### Step 0: Environment
 
-Install `git`, `nodejs` and `npm`.
+Install `git`, `nodejs` and `yarn`.
 
 #### Git
 
@@ -23,12 +23,12 @@ Install `git`, `nodejs` and `npm`.
 - To check if git is already installed, type `git --version` in terminal/command prompt. You should see a version number displayed after running this command.
 - [Here](https://github.com/git-guides/install-git) are the official instructions to install git for all platforms in case you haven't installed it already.
 
-#### NodeJS and NPM
+#### NodeJS and Yarn
 
-`nodejs` and `npm` **must** be installed to run the server locally.
+`nodejs` and `yarn` **must** be installed to run the server locally.
 
-- To check if NodeJS and NPM already installed, type `node --version && npm --version` in terminal/command prompt. You should see two version numbers displayed after running this command. For developing Dabbu Intel API Server, we use the LTS version of NodeJS (v14.x)
-- [Here](https://nodejs.org/en/download/package-manager/) are the official instructions to install NodeJS and NPM for all platforms in case you haven't installed it already.
+- To check if NodeJS and Yarn already installed, type `node --version && yarn --version` in terminal/command prompt. You should see two version numbers displayed after running this command. For developing Dabbu Intel API Server, we use the latest version of Typescript, which compiles to CommonJS code.
+- [Here](https://nodejs.org/en/download/package-manager/) are the official instructions to install NodeJS and Yarn for all platforms in case you haven't installed it already.
 
 ### Step 1: Fork
 
@@ -45,7 +45,7 @@ $ git fetch upstream
 
 ### Step 2: Build
 
-All you need to do to build is run `npm run build`. If the command runs successfully, there should be 4 files (`intel-api-server-alpine`, `intel-api-server-linux`, `intel-api-server-macos` and `intel-api-server-win.exe`) in the `dist/` folder. These are the executables that can be run on alpine, linux, macos and windows respectively without installation of external dependencies.
+All you need to do to build is run `yarn package`. If the command runs successfully, there should be 4 files (`intel-api-server-alpine`, `intel-api-server-linux`, `intel-api-server-macos` and `intel-api-server-win.exe`) in the `dist/binaries/` folder. These are the binaries that can be run on alpine, linux, macos and windows respectively without installation of external dependencies.
 
 Once you've built the project locally, you're ready to start making changes!
 
@@ -60,7 +60,6 @@ To keep your development environment organized, create local branches to hold yo
 - `refactor/`: A code change that neither fixes a bug nor adds a feature
 - `test/`: A change to the tests
 - `style/`: Changes that do not affect the meaning of the code (linting)
-- `build/`: Bumping a dependency like node or express
 
 ```sh
 $ git checkout -b feature/add-awesome-new-feature -t upstream/develop
@@ -68,34 +67,35 @@ $ git checkout -b feature/add-awesome-new-feature -t upstream/develop
 
 ### Step 4: Code
 
-To get a decent idea of how the code is organised and what happens where, the code is heavily commented to allow you to understand exactly what happens. Remember to always format the code using `xo` once you're done.
+The code is heavily commented to allow you to understand exactly what happens where.
 
-To test a change without building the executables, you can type `npm start` and it will run the server directly. Use an HTTP client like `httpie` or `postman` to test the API.
+- `src/server.ts` contains code to run the server from the command line.
+- `src/app.ts` contains code that actually creates the server and exports the created server as an object.
+- `src/providers.ts` contains an interface that all providers must implement.
+- `src/routes/*.ts` contain code that calls the appropriate controller method for a certain route (e.g.: it calls the `extractInfo` function of the controller when a POST request is made to `/data/extract-info`).
+- `src/controllers/*.ts` contain code that parses the request, executes the required function and returns a response to the client. Each route in the `src/routes/` folder should have a corresponding controller in the `src/controllers/` folder. The controller files contain the main topic extraction logic.
+- `src/providers/*.ts` contain provider-specific code that allows listing files and folders stored with that particular provider and returning it in a unified format.
+- `src/utils/*.ts` contain utility functions regarding different things.
+
+To test a change without building the binaries, you can type `yarn start` and it will run the server directly in development mode on port 8000.
 
 ### Step 5: Document
 
 Once your changes are ready to go, begin the process of documenting your code. The code **must** be heavily commented, so future contributors can move around and make changes easily.
 
-Make sure all the changes you make are in accordance with the [Intel API Specifications](https://dabbu-knowledge-platform.github.io/intel-api/). If you wish to make changes to the API specification itself, drop a message [here](https://github.com/dabbu-knowledge-platform/intel-api-server/discussions/categories/general) and we can start discussing the changes.
+The documentation for the API endpoints and providers is located in the `/docs/` folder and must be updated if any changes are made to the API endpoints.
 
 ### Step 6: Test
 
-Before submitting your changes, please run the linter (`xo`):
+Please ensure that all changes/additions come with tests. All PRs must have unit tests unless the maintainer says the PR is text-exempt.
 
-```
-npm test
-```
+All route tests go under the folder `tests/route-tests/<route name>.route.test.ts`. Tests for controllers go under the folder `tests/controller-tests/<controller name>.controller.test.ts`. All utility tests go under the folder `tests/util-tests/<util file name>.util.ts`.
 
-Please ensure that:
+We use `jest` to run the tests and `supertest` to make requests to the server in a test environment.
 
-- your code passes all lint checks (`xo`)
-- your code passes all format checks (`prettier` run by xo) 
+Before submitting your changes, please run all tests using `yarn ci`.
 
-If the linter points out errors, try fixing them automatically by running:
-
-```
-npm run format
-```
+If the linter points out errors, try fixing them automatically by running `yarn fix`.
 
 The linter will try its best to fix all issues, but certain issues require you to fix them manually.
 
@@ -133,9 +133,9 @@ Before a pull request can be merged, it **must** have a pull request title with 
 
 Examples of commit messages with semantic prefixes:
 
-- `fix: don't reload config everytime`
-- `feat: add MS OneDrive provider`
-- `docs: fix typo in APIs.md`
+- `fix(perf): don't reload config everytime`
+- `feat(dropbox): add dropbox provider`
+- `docs(readme): fix typo in readme.md`
 
 Common prefixes:
 
