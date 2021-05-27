@@ -154,7 +154,7 @@ export async function extractInfo(
 				// Then run the topic extractor
 				const userTopics = extractUserKeywords(
 					text,
-					JSON.parse(request.body['keywords'] || {}),
+					JSON.parse(request.body.keywords || '{}'),
 				)
 				// Add the topics to the list
 				for (const topic of userTopics) {
@@ -175,9 +175,7 @@ export async function extractInfo(
 			},
 		})
 	} catch (error) {
-		Logger.error(
-			`controller.data.extractInfo: caught error: ${json(error)}`,
-		)
+		Logger.error(`controller.data.extractInfo: caught error: ${error}`)
 		// If an error is caught, forward it to the error handler
 		next(error)
 	}
