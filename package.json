@@ -37,7 +37,7 @@
 		"@types/helmet": "^4.0.0",
 		"@types/jest": "^26.0.23",
 		"@types/morgan": "^1.9.2",
-		"@types/multer": "^1.4.5",
+		"@types/multer": "^1.4.6",
 		"@types/nanoid": "^3.0.0",
 		"@types/node": "^15.6.1",
 		"@types/sqlite3": "^3.1.7",
