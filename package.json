@@ -28,7 +28,7 @@
 		"multer": "^1.4.2",
 		"nanoid": "^3.1.23",
 		"office-text-extractor": "^1.4.1",
-		"sqlite3": "^5.0.2",
+		"sqlite3": "^5.0.3",
 		"winston": "^3.3.3"
 	},
 	"devDependencies": {
