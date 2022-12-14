@@ -20,7 +20,7 @@
 	},
 	"dependencies": {
 		"env-paths": "^2.2.1",
-		"express": "^4.17.1",
+		"express": "^4.17.3",
 		"fs-extra": "^10.0.0",
 		"helmet": "^4.6.0",
 		"lda": "^0.2.0",
